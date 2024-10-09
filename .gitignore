@@ -1,0 +1,26 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.unityproj
+*.log
+*.sln
+*.csproj
+.vs/
+.vscode/
+.idea/
+
+# Unity Asset Store tools
+[Aa]ssets/AssetStoreTools*
+
+# Other exclusions
+.DS_Store
+Thumbs.db
