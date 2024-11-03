@@ -79,6 +79,7 @@ public class PsychicGrab : MonoBehaviour
     public void CrushObject()
     {
         grabbedObject.GetComponent<MeshRenderer>().material = crushedMaterial;
+        grabbedObject.GetComponent<CrushableScript>().Crush();
     }
 
     public void ResetObject()
