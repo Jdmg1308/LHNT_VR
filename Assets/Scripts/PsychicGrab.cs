@@ -5,12 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PsychicGrab : MonoBehaviour
 {
-    public Transform parentTransform;  // The transform that will act as the parent (e.g., controller)
+    public Transform GazeInteractorTransform;  // The transform that will act as the parent (e.g., controller)
     // public InputActionProperty grabAction;  // Input action for grabbing (assign the trigger button)
     public float rayDistance = 30.0f;  // Distance of the raycast
+    public float grabSpeed = 10f;
     public LayerMask interactableLayer;  // Layer to limit the raycast to specific objects
 
     private Transform grabbedObject = null;
+    public Transform holdPosition;
+    private Transform grabbedObjectParentBuffer;
 
     [SerializeField] private Material crushedMaterial;
 
@@ -45,7 +48,7 @@ public class PsychicGrab : MonoBehaviour
     void AttemptGrab()
     {
         // Cast a ray from the controller forward
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(GazeInteractorTransform.position, transform.forward);
         RaycastHit hit;
 
         // If the ray hits an object within the specified layer and distance
@@ -59,10 +62,12 @@ public class PsychicGrab : MonoBehaviour
     {
         // Make the hit object a child of the controller
         grabbedObject = obj;
-        grabbedObject.SetParent(parentTransform);
+        grabbedObjectParentBuffer = grabbedObject.parent;
+
+        grabbedObject.SetParent(GazeInteractorTransform);
 
         // Bring Object Closer
-        grabbedObject.position = new Vector3(parentTransform.position.x, grabbedObject.position.y, grabbedObject.position.z); // X, Y, Z coordinates
+        StartCoroutine(MoveSmoothly(grabbedObject, holdPosition.position));
 
         // Get original object values
         originalMaterial = grabbedObject.GetComponent<MeshRenderer>().material;
@@ -75,6 +80,20 @@ public class PsychicGrab : MonoBehaviour
         grabbedObject = null;
     }
 
+    IEnumerator MoveSmoothly(Transform obj, Vector3 destination)
+    {
+        Debug.Log("bruhh");
+        while (Vector3.Distance(obj.position, destination) > 0.01f)
+        {
+            // Lerp towards the target position over time
+            obj.position = Vector3.Lerp(obj.position, destination, grabSpeed * Time.deltaTime);
+            yield return null; // Wait for the next frame
+        }
+
+        // Snap to the destination to avoid small positional errors
+        obj.position = destination;
+    }
+
 
     public void CrushObject()
     {
@@ -85,5 +104,14 @@ public class PsychicGrab : MonoBehaviour
     public void ResetObject()
     {
         grabbedObject.GetComponent<MeshRenderer>().material = originalMaterial;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Set the color for the gizmo line
+        Gizmos.color = Color.green;
+
+        // Draw the ray from the object's position in the forward direction up to the specified ray distance
+        Gizmos.DrawLine(GazeInteractorTransform.position, GazeInteractorTransform.position + GazeInteractorTransform.forward * rayDistance);
     }
 }
