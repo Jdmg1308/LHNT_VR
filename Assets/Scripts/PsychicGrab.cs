@@ -8,7 +8,7 @@ public class PsychicGrab : MonoBehaviour
     public Transform GazeInteractorTransform;  // The transform that will act as the parent (e.g., controller)
     // public InputActionProperty grabAction;  // Input action for grabbing (assign the trigger button)
     public float rayDistance = 30.0f;  // Distance of the raycast
-    public float grabSpeed = 10f;
+    public float grabSpeed = 8.5f;
     public LayerMask interactableLayer;  // Layer to limit the raycast to specific objects
 
     private Transform grabbedObject = null;
