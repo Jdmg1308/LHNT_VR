@@ -4701,6 +4701,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 2943252347650755648, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_SelectInput.m_InputActionReferenceValue
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943252347650755648, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_ActivateInput.m_InputActionReferenceValue
+      value: 
+      objectReference: {fileID: 166309299255360982, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    - target: {fileID: 2943252347650755648, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_SelectInput.m_InputActionReferencePerformed
+      value: 
+      objectReference: {fileID: -6636151676588669406, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    - target: {fileID: 2943252347650755648, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_ActivateInput.m_InputActionReferencePerformed
+      value: 
+      objectReference: {fileID: 6036917277997282084, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    - target: {fileID: 5799605649503734829, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_ActionAssets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5799605649503734829, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_ActionAssets.Array.data[0]
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    - target: {fileID: 5799605649503734829, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_ActionAssets.Array.data[1]
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 7545483747675925533, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4741,6 +4769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7782267399628301643, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_GroupName
+      value: Mind
+      objectReference: {fileID: 0}
     - target: {fileID: 8936418252521187493, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -4749,6 +4781,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9117845698455396647, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_SelectInput.m_InputActionReferenceValue
+      value: 
+      objectReference: {fileID: -1438990520660251397, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    - target: {fileID: 9117845698455396647, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      propertyPath: m_ActivateInput.m_InputActionReferenceValue
+      value: 
+      objectReference: {fileID: 166309299255360982, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
     - target: {fileID: 9117845698455396647, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
       propertyPath: m_SelectInput.m_InputActionReferencePerformed
       value: 
