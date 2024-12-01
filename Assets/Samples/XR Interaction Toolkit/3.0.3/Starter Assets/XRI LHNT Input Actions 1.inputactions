@@ -2095,6 +2095,17 @@
                 },
                 {
                     "name": "",
+                    "id": "26a9632f-8083-49af-9b90-f947767e08c9",
+                    "path": "<EEGInputDevice>/forwardButtonInput",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6e20ec1d-c238-4f0a-8e2a-27d88339d8e5",
                     "path": "<XRController>{RightHand}/{Grip}",
                     "interactions": "",
@@ -2324,6 +2335,17 @@
                     "name": "",
                     "id": "5ce27712-7336-479a-a783-9274a44fee67",
                     "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Teleport Mode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c7a085a-f744-45e6-8d40-fa8cd5d738bb",
+                    "path": "<EEGInputDevice>/backwardButtonInput",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
