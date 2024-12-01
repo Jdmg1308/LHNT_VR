@@ -18,46 +18,56 @@ public struct EEGInputState : IInputStateTypeInfo
 
 [InputControlLayout(displayName = "EEG Input Device", stateType = typeof(EEGInputState))]
 [InitializeOnLoad]
-public class EEGInputDevice : InputDevice
+public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
 {
     public ButtonControl forwardButtonInput {get; private set;}
     public ButtonControl backwardButtonInput {get; private set;}
 
-    // static EEGInputDevice(){
-    //     // Adds control layout to the the input system
-    //     InputSystem.RegisterLayout<EEGInputDevice>();
-    // }
-
-    // Apparently this triggers static constructor of our input device in the player
-    // [RuntimeInitializeOnLoadMethod]
-    // private static void InitializeInPlayer() {}
-
-    // Input System call this after it constructs the device and before it adds the device to system
-    // Any last setup can be added here
     protected override void FinishSetup(){
         base.FinishSetup();
         forwardButtonInput = GetChildControl<ButtonControl>("forwardButtonInput");
         backwardButtonInput = GetChildControl<ButtonControl>("backwardButtonInput");
-    //     // button3 = GetChildControl<ButtonControl>("button3");
-    //     // button4 = GetChildControl<ButtonControl>("button4");
-    //     // button5 = GetChildControl<ButtonControl>("button5");
-    //     // button6 = GetChildControl<ButtonControl>("button6");
+
     }
 
     static EEGInputDevice(){
-        InputSystem.RegisterLayout<EEGInputDevice>();
+        InputSystem.RegisterLayout<EEGInputDevice>(
+            matches: new InputDeviceMatcher()
+                .WithInterface("EEGInputDevice")
+        );
 
         if(!InputSystem.devices.Any(x => x is EEGInputDevice)){
-            InputSystem.AddDevice<EEGInputDevice>();
+            // InputSystem.AddDevice<EEGInputDevice>();
+            InputSystem.AddDevice(new InputDeviceDescription{
+                interfaceName = "EEGInputDevice",
+                product = "LhntEegVrHeadset"
+            }); 
         }
+        
         
     }
 
     [RuntimeInitializeOnLoadMethod]
     public static void Initialize(){
-        // This is called by the Input System to initialize the device
-        // var eegInputDevice = InputSystem.AddDevice<EEGInputDevice>();
-        // InputSystem.QueueStateEvent(eegInputDevice, new EEGInputState{buttons = 0});
-        
+    }
+
+    public void OnUpdate()
+    {
+        // Poll here    
+        int buttonState = 0;
+
+        // Check if the "K" key is pressed for forward input
+        if (Keyboard.current.kKey.isPressed){
+            buttonState |= 1 << 0; // Set bit 0 for forwardButtonInput
+        }
+
+        // Check if the "L" key is pressed for backward input
+        if (Keyboard.current.lKey.isPressed){
+            buttonState |= 1 << 1; // Set bit 1 for backwardButtonInput
+        }
+
+        // Queue the state event with the updated button state
+        InputSystem.QueueStateEvent(this, new EEGInputState { buttons = buttonState });
+
     }
 }
