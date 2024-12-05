@@ -29,7 +29,26 @@ public class TestEEGInputHandler : MonoBehaviour
 
         if (eegDevice.backwardButtonInput.isPressed){
             Debug.Log("Backward button pressed!");
-            
+        }
+
+        if (eegDevice.leftButtonInput.isPressed)
+        {
+            Debug.Log("Left button pressed!");
+        }
+
+        if (eegDevice.rightButtonInput.isPressed)
+        {
+            Debug.Log("Right button pressed!");
+        }
+
+        if (eegDevice.upButtonInput.isPressed)
+        {
+            Debug.Log("Up button pressed!");
+        }
+
+        if (eegDevice.downButtonInput.isPressed)
+        {
+            Debug.Log("Down button pressed!");
         }
     }
 }
