@@ -77,7 +77,8 @@ public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
         }
 
         // Check if the "s" key is pressed for backward input
-        if (Keyboard.current.sKey.isPressed){
+        if (Keyboard.current.sKey.wasPressedThisFrame)
+        {
             buttonState |= 1 << 1; // Set bit 1 for backwardButtonInput
         }
 
