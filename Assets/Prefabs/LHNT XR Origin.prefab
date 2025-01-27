@@ -401,7 +401,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_InputActionReferencePerformed: {fileID: 6036917277997282084, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
-    m_InputActionReferenceValue: {fileID: 166309299255360982, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    m_InputActionReferenceValue: {fileID: 0}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -998,7 +998,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1984,11 +1984,11 @@ MonoBehaviour:
   m_NearFarInteractor: {fileID: 9117845698455396647}
   m_TeleportInteractor: {fileID: 2943252347650755648}
   m_TeleportMode: {fileID: -6636151676588669406, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
-  m_TeleportModeCancel: {fileID: 0}
-  m_Turn: {fileID: 0}
-  m_SnapTurn: {fileID: 0}
-  m_Move: {fileID: 0}
-  m_UIScroll: {fileID: 0}
+  m_TeleportModeCancel: {fileID: 1595092451734137178, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+  m_Turn: {fileID: -5357035657119976102, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+  m_SnapTurn: {fileID: 2392352313117675145, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+  m_Move: {fileID: -415478196774982292, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+  m_UIScroll: {fileID: 5031399985842538012, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
   m_SmoothMotionEnabled: 0
   m_SmoothTurnEnabled: 1
   m_NearFarEnableTeleportDuringNearInteraction: 1
@@ -2012,7 +2012,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_StartingGroupMembers:
   - {fileID: 9117845698455396647}
-  - {fileID: 0}
+  - {fileID: 2943252347650755648}
   m_StartingInteractionOverridesMap: []
 --- !u!114 &5258551883534336435
 MonoBehaviour:
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5480876193394376085}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b734f2bd29eeddd4d85afb0c266228c3, type: 3}
   m_Name: 
@@ -2439,7 +2439,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_InputActionReferencePerformed: {fileID: 1810696152560137737, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
-    m_InputActionReferenceValue: {fileID: -1438990520660251397, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    m_InputActionReferenceValue: {fileID: 0}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -2469,7 +2469,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_InputActionReferencePerformed: {fileID: 6036917277997282084, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
-    m_InputActionReferenceValue: {fileID: 166309299255360982, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    m_InputActionReferenceValue: {fileID: 0}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -2551,7 +2551,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: -6636151676588669406, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+    m_InputActionReferencePerformed: {fileID: 6036917277997282084, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
     m_InputActionReferenceValue: {fileID: 0}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
@@ -2562,7 +2562,7 @@ MonoBehaviour:
     m_ManualQueueValue: 0
     m_ManualQueueTargetFrame: 0
   m_UIScrollInput:
-    m_InputSourceMode: 2
+    m_InputSourceMode: 0
     m_InputAction:
       m_Name: UI Scroll
       m_Type: 0
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061767863976845225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd0b9921bce4eeb49bd05815b1135ac2, type: 3}
   m_Name: 
@@ -3533,6 +3533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+  - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &2162087443033188362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3540,7 +3541,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8936418252521187493}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82bc72d2ecc8add47b2fe00d40318500, type: 3}
   m_Name: 

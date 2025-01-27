@@ -574,7 +574,7 @@
                 {
                     "name": "",
                     "id": "93735c83-30ba-447e-98dc-1ea3fa967b9a",
-                    "path": "<EEGInputDevice>/downButtonInput",
+                    "path": "<EEGInputDevice>/rightButtonInput",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -626,9 +626,9 @@
                 },
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "a08f355e-c78c-498f-af73-02d83da4bc5c",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -647,7 +647,7 @@
                 {
                     "name": "",
                     "id": "6c7a085a-f744-45e6-8d40-fa8cd5d738bb",
-                    "path": "<EEGInputDevice>/forwardButtonInput",
+                    "path": "<EEGInputDevice>/upButtonInput",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -663,6 +663,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Teleport Mode Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f94e1ce-66dd-4e4c-bcca-848d49a880ea",
+                    "path": "<EEGInputDevice>/forwardButtonInput",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
