@@ -6,11 +6,11 @@ public class XROriginSnapVision : MonoBehaviour
     public XROrigin xrOrigin; // Reference to the XR Origin
     public Transform cameraTransform; // Reference to the XR Camera (can be assigned manually or found automatically)
 
-    public float rotationAmount = 30f; // Small amount to rotate when snapping
-    public float angleThreshold = 90f; // Deadzone angle for snapping
-    public float snapCooldown = 0.1f; // Time delay between snaps
+    public float rotationSpeed = 90f; // Degrees per second
+    public float angleThreshold = 90f; // Deadzone angle for starting rotation
 
-    private float lastSnapTime; // To keep track of the last snap time
+    private bool isRotating = false;
+    private float targetAngle = 0f;
 
     void Start()
     {
@@ -30,24 +30,22 @@ public class XROriginSnapVision : MonoBehaviour
         }
     }
 
-    public void Update()
+    void Update()
     {
-
         if (cameraTransform == null || xrOrigin == null)
         {
             Debug.LogError("Missing references to XR Origin or Camera Transform.");
             return;
         }
 
-        //Only allow snapping after cooldown
-        if (Time.time - lastSnapTime < snapCooldown)
+        if (isRotating)
         {
+            SmoothRotate();
             return;
         }
 
         // Get the current camera direction
         Vector3 cameraForward = cameraTransform.forward;
-        // Project onto the horizontal plane
         cameraForward.y = 0;
         cameraForward.Normalize();
 
@@ -55,39 +53,25 @@ public class XROriginSnapVision : MonoBehaviour
         xrOriginForward.y = 0;
         xrOriginForward.Normalize();
 
-
-        // Calculate angles to left and right
         float angle = Vector3.SignedAngle(xrOriginForward, cameraForward, Vector3.up);
-
-        Debug.Log(angle);
-
-        // Check if the camera is within the threshold to snap
 
         if (Mathf.Abs(angle) > angleThreshold)
         {
-            // Snap in the correct direction
-            float snapDirection = Mathf.Sign(angle); // Positive for right, negative for left
-            Snap(snapDirection * rotationAmount); // Snap by a small fixed amount
-            lastSnapTime = Time.time; // Update cooldown timer
+            float rotationDirection = Mathf.Sign(angle);
+            targetAngle = xrOrigin.transform.eulerAngles.y + rotationDirection * angleThreshold;
+            isRotating = true;
         }
     }
 
-    /// <summary>
-    /// Snaps the XR Origin to face left or right based on the current camera orientation.
-    /// </summary>
-    /// <param name="snapToRight">True to snap to the right, false to snap to the left.</param>
-    public void Snap(float angle)
+    void SmoothRotate()
     {
-        // Rotate the XR Origin
-        xrOrigin.transform.Rotate(0, angle, 0);
-        if (cameraTransform != null)
-        {
-            cameraTransform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else
-        {
-            Debug.LogError("Camera Transform is null!");
-        }
+        float currentY = xrOrigin.transform.eulerAngles.y;
+        float newY = Mathf.MoveTowardsAngle(currentY, targetAngle, rotationSpeed * Time.deltaTime);
+        xrOrigin.transform.eulerAngles = new Vector3(0, newY, 0);
 
+        if (Mathf.Approximately(newY, targetAngle))
+        {
+            isRotating = false;
+        }
     }
 }
