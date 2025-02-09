@@ -2340,7 +2340,7 @@ Transform:
   m_GameObject: {fileID: 6600372169543422263}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.071}
+  m_LocalPosition: {x: 0.26, y: -0.1, z: 0.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3452,6 +3452,7 @@ GameObject:
   - component: {fileID: 5799605649503734829}
   - component: {fileID: 2162087443033188362}
   - component: {fileID: 5596014778322178550}
+  - component: {fileID: 7079332922217594242}
   m_Layer: 2
   m_Name: LHNT XR Origin
   m_TagString: Untagged
@@ -3590,6 +3591,22 @@ MonoBehaviour:
   m_AimAssistRequiredSpeed: 0.25
   m_AimAssistPercent: 0.8
   m_AimAssistMaxSpeedPercent: 10
+--- !u!114 &7079332922217594242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936418252521187493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a6b18cfe4b77e499f3533d2560eda2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xrOrigin: {fileID: 9088357675950819526}
+  cameraTransform: {fileID: 2725995368815496514}
+  rotationSpeed: 45
+  angleThreshold: 55
 --- !u!1001 &897012237805142201
 PrefabInstance:
   m_ObjectHideFlags: 0

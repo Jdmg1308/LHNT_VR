@@ -6,11 +6,12 @@ public class XROriginSnapVision : MonoBehaviour
     public XROrigin xrOrigin; // Reference to the XR Origin
     public Transform cameraTransform; // Reference to the XR Camera (can be assigned manually or found automatically)
 
-    public float rotationSpeed = 90f; // Degrees per second
-    public float angleThreshold = 90f; // Deadzone angle for starting rotation
+    public float snapAngle = 45f; // Angle to snap per step
+    public float angleThreshold = 30f; // Angle threshold to trigger snapping
+    public float snapCooldown = 0.2f; // Time delay between snaps
 
-    private bool isRotating = false;
-    private float targetAngle = 0f;
+    private float lastSnapTime = 0f;
+    private bool hasSnapped = false;
 
     void Start()
     {
@@ -38,13 +39,11 @@ public class XROriginSnapVision : MonoBehaviour
             return;
         }
 
-        if (isRotating)
+        if (Time.time - lastSnapTime < snapCooldown)
         {
-            SmoothRotate();
             return;
         }
 
-        // Get the current camera direction
         Vector3 cameraForward = cameraTransform.forward;
         cameraForward.y = 0;
         cameraForward.Normalize();
@@ -55,23 +54,22 @@ public class XROriginSnapVision : MonoBehaviour
 
         float angle = Vector3.SignedAngle(xrOriginForward, cameraForward, Vector3.up);
 
-        if (Mathf.Abs(angle) > angleThreshold)
+        if (!hasSnapped && Mathf.Abs(angle) > angleThreshold)
         {
-            float rotationDirection = Mathf.Sign(angle);
-            targetAngle = xrOrigin.transform.eulerAngles.y + rotationDirection * angleThreshold;
-            isRotating = true;
+            float snapDirection = Mathf.Sign(angle);
+            Snap(snapDirection * snapAngle);
+            lastSnapTime = Time.time;
+            hasSnapped = true;
+        }
+        else if (Mathf.Abs(angle) < angleThreshold / 2)
+        {
+            hasSnapped = false;
         }
     }
 
-    void SmoothRotate()
+    void Snap(float angle)
     {
-        float currentY = xrOrigin.transform.eulerAngles.y;
-        float newY = Mathf.MoveTowardsAngle(currentY, targetAngle, rotationSpeed * Time.deltaTime);
-        xrOrigin.transform.eulerAngles = new Vector3(0, newY, 0);
-
-        if (Mathf.Approximately(newY, targetAngle))
-        {
-            isRotating = false;
-        }
+        xrOrigin.transform.Rotate(0, angle, 0);
+        cameraTransform.localRotation = Quaternion.identity;
     }
 }

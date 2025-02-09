@@ -288,6 +288,11 @@ MonoBehaviour:
   zoomSpeed: 5
   minZoom: 5
   maxZoom: 50
+--- !u!65 &449552595 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 4689748149265126980, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
+  m_PrefabInstance: {fileID: 5867423098928277724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &501802038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,10 +740,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1200588694864667255, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200588694864667255, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 449552595}
     - target: {fileID: 2877023463818694642, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
       propertyPath: m_Name
       value: BatteryInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 5122308129690375416, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
+      propertyPath: interactor
+      value: 
+      objectReference: {fileID: 99041118}
     - target: {fileID: 6379147802129778340, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.37

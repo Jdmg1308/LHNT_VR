@@ -1076,38 +1076,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2071951008422732637, guid: 9cc6e886b3ec6b143b112f8ea5553343, type: 3}
   m_PrefabInstance: {fileID: 1736808149}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &632511233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8936418252521187493, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
-  m_PrefabInstance: {fileID: 6575360001952025770}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &632511238 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9088357675950819526, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
-  m_PrefabInstance: {fileID: 6575360001952025770}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632511233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &632511240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632511233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a6b18cfe4b77e499f3533d2560eda2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xrOrigin: {fileID: 632511238}
-  cameraTransform: {fileID: 1442224712}
-  rotationSpeed: 45
-  angleThreshold: 55
 --- !u!1 &788111584
 GameObject:
   m_ObjectHideFlags: 0
@@ -6468,18 +6436,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7951050688092493628, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951050688092493628, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7951050688092493628, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.85
-      objectReference: {fileID: 0}
     - target: {fileID: 8936418252521187493, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -6487,10 +6443,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8936418252521187493, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 632511240}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
 --- !u!114 &9108292829394508247
 MonoBehaviour:
