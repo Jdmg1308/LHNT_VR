@@ -3605,8 +3605,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xrOrigin: {fileID: 9088357675950819526}
   cameraTransform: {fileID: 2725995368815496514}
-  rotationSpeed: 45
+  snapAngle: 45
   angleThreshold: 55
+  snapCooldown: 0.2
 --- !u!1001 &897012237805142201
 PrefabInstance:
   m_ObjectHideFlags: 0
