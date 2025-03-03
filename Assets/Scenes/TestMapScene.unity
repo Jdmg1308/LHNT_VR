@@ -373,8 +373,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cb7b6a634d1fa49a3fe5daf5b17894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPatrolling: 1
   patrolPathScript: {fileID: 1822888241}
   currentPatrolPointIndex: 0
+  bulletPrefab: {fileID: 5356239073171952968, guid: 1e36cc15c1bde6d48b2c87cac3730b04, type: 3}
+  turnThreshold: 5
+  detectionCollider: {fileID: 0}
 --- !u!195 &22519097
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1327,7 +1331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7545483747675925533, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.584
       objectReference: {fileID: 0}
     - target: {fileID: 7545483747675925533, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1733,6 +1737,8 @@ GameObject:
   - component: {fileID: 795804286}
   - component: {fileID: 795804285}
   - component: {fileID: 795804284}
+  - component: {fileID: 795804287}
+  - component: {fileID: 795804288}
   m_Layer: 0
   m_Name: VisionPyramid
   m_TagString: Untagged
@@ -1827,6 +1833,46 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795804282}
   m_Mesh: {fileID: -2432090755550338912, guid: 7ef170a7989d2944a83e3a754b9d7141, type: 3}
+--- !u!114 &795804287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795804282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8050e211d3c8f4baac342e855d27a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotAIScript: {fileID: 22519096}
+--- !u!54 &795804288
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795804282}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &819954468
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,15 +4952,15 @@ PrefabInstance:
       objectReference: {fileID: 99041118}
     - target: {fileID: 6379147802129778340, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.37
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 6379147802129778340, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 6379147802129778340, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.898003
+      value: 20.26
       objectReference: {fileID: 0}
     - target: {fileID: 6379147802129778340, guid: 8320ff90755398f4b8d04dfc105bf851, type: 3}
       propertyPath: m_LocalRotation.w

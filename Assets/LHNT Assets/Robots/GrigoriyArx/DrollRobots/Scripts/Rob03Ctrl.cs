@@ -36,14 +36,11 @@ public class Rob03Ctrl : MonoBehaviour
                 anim.SetBool("turnLeft", true);
                 anim.SetBool("turnRight", false);
             }
-            if (Input.GetAxis("Horizontal") < -0.1f)
-            {
+            if (Input.GetAxis("Horizontal") < -0.1f){
                 anim.SetBool("turnRight", true);
                 anim.SetBool("turnLeft", false);
             }
-        }
-        else
-        {
+        }else{
             anim.SetBool("turnLeft", false);
             anim.SetBool("turnRight", false);
 
