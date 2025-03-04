@@ -734,6 +734,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 557391514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &243470789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243470791}
+  - component: {fileID: 243470790}
+  m_Layer: 0
+  m_Name: CoroutineRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &243470790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243470789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1221942260}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &243470791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243470789}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280507675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,7 +1511,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8936418252521187493, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1964946079}
   m_SourcePrefab: {fileID: 100100000, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
 --- !u!1 &501906792
 GameObject:
@@ -3403,6 +3450,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1062778086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &1221942260
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: CoroutineRunner
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1244348634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,6 +3670,50 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0003978908, y: 0.47219315, z: 0.019209445}
     m_Extent: {x: 0.52072597, y: 0.47526893, z: 0.43719712}
   m_DirtyAABB: 0
+--- !u!1 &1323173854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323173856}
+  - component: {fileID: 1323173855}
+  m_Layer: 0
+  m_Name: CoroutineRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1323173855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323173854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1464786950}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1323173856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323173854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1349635871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,6 +4099,21 @@ Transform:
   - {fileID: 2144958738}
   m_Father: {fileID: 1747990879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!115 &1464786950
+MonoScript:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 7
+  m_DefaultReferences: {}
+  m_Icon: {fileID: 0}
+  m_Type: 0
+  m_ExecutionOrder: 0
+  m_ClassName: CoroutineRunner
+  m_Namespace: 
+  m_AssemblyName: Assembly-CSharp
 --- !u!1 &1471427524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,6 +5065,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1244348635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1964946071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8936418252521187493, guid: 58e6250c12de21f45a02b95b40fe6dba, type: 3}
+  m_PrefabInstance: {fileID: 501802038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1964946079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964946071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fba40f058d2da4da5a030c6f09f4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1968529107
 GameObject:
   m_ObjectHideFlags: 0
@@ -5750,3 +5888,5 @@ SceneRoots:
   - {fileID: 1471427525}
   - {fileID: 352502658}
   - {fileID: 1560270698}
+  - {fileID: 243470791}
+  - {fileID: 1323173856}
