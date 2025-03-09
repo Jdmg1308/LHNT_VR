@@ -15,6 +15,10 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collision.gameObject.tag: " + collision.gameObject.name);
+        if(collision.gameObject.tag == "VisionDetection"){
+            return;
+        }
         ContactPoint contact = collision.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.forward, contact.normal); // turn to Normal
         Vector3 pos = contact.point;

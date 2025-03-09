@@ -15,8 +15,8 @@ public class RobotAIScript : MonoBehaviour
     Transform playerTarget;
     public GameObject bulletPrefab;
     public float turnThreshold = 5.0f;
-
-    public MeshCollider detectionCollider;
+    public Transform bulletSpawnPoint;
+    float shootCooldown = 3.0f;
     // Start is called before the first frame update
     void Start() {
         patrolType = patrolPathScript.patrolType;
@@ -52,7 +52,6 @@ public class RobotAIScript : MonoBehaviour
 
         // Get the angle between forward direction and target direction
         float angle = Vector3.SignedAngle(transform.forward, directionToTarget, Vector3.up);
-        Debug.Log("angle: " + angle);
 
         // Determine turning direction
         if (Mathf.Abs(angle) > turnThreshold)
@@ -67,11 +66,19 @@ public class RobotAIScript : MonoBehaviour
                 anim.SetBool("turnLeft", false);
                 anim.SetBool("turnRight", true);
             }
-        }
-        else
-        {
+        } else {
             anim.SetBool("turnLeft", false);
             anim.SetBool("turnRight", false);
+
+            // Shoot at target
+            if(shootCooldown <= 0){
+                anim.SetBool("shoot", true);
+                StartCoroutine(StartDelay());
+                shootCooldown = 2.0f;
+            }else{
+                anim.SetBool("shoot", false);
+                shootCooldown -= Time.deltaTime;
+            }
         }
     }
 
@@ -106,5 +113,12 @@ public class RobotAIScript : MonoBehaviour
         agent.isStopped = false;
         playerTarget = null;
         agent.enabled = true;
+    }
+
+    IEnumerator StartDelay(){
+        yield return new WaitForSeconds(.5f);
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * 5;
+
     }
 }

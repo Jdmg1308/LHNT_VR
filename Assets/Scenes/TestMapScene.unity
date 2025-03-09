@@ -378,7 +378,7 @@ MonoBehaviour:
   currentPatrolPointIndex: 0
   bulletPrefab: {fileID: 5356239073171952968, guid: 1e36cc15c1bde6d48b2c87cac3730b04, type: 3}
   turnThreshold: 5
-  detectionCollider: {fileID: 0}
+  bulletSpawnPoint: {fileID: 2130949108}
 --- !u!195 &22519097
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1741,7 +1741,7 @@ GameObject:
   - component: {fileID: 795804288}
   m_Layer: 0
   m_Name: VisionPyramid
-  m_TagString: Untagged
+  m_TagString: VisionDetection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4553,7 +4553,7 @@ Transform:
   m_GameObject: {fileID: 2130949107}
   serializedVersion: 2
   m_LocalRotation: {x: -6.451723e-12, y: -0.04976795, z: 0.0016870482, w: 0.9987594}
-  m_LocalPosition: {x: -0.005, y: 0.104, z: 0.405}
+  m_LocalPosition: {x: -0.01, y: 0.63, z: 0.4}
   m_LocalScale: {x: 0.68399674, y: 0.68399686, z: 0.68399686}
   m_ConstrainProportionsScale: 0
   m_Children: []
