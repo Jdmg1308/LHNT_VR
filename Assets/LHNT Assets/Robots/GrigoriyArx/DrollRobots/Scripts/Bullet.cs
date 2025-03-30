@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float lifeTime = 3f;
+    public float damage = 30f;
     public GameObject HitSplash;
 
 
@@ -20,6 +21,7 @@ public class Bullet : MonoBehaviour
         }
         if(collision.gameObject.tag == "Player"){
             Debug.Log("Player Hit");
+            collision.gameObject.GetComponent<PlayerScript>().TakeDamage(damage);
         }
 
         ContactPoint contact = collision.contacts[0];

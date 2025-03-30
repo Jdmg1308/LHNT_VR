@@ -1,9 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameplayUIScript : MonoBehaviour
 {
-    public Image healthBar;
+    public static GameplayUIScript instance { get; private set; }
+    public Slider healthBar;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }   
+    }
 }
