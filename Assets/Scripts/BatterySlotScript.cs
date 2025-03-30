@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.Events;
 
 public class BatterySlotScript : MonoBehaviour
 {
     public bool snappable = true;
     public XRBaseInteractor interactor;
+    public UnityEvent OnCorrectBattery;
 
     void OnTriggerEnter(Collider other){
         if (other.gameObject.CompareTag("Battery"))
@@ -30,6 +32,7 @@ public class BatterySlotScript : MonoBehaviour
         Debug.Log("EnterSlot");
         interactor.allowSelect = true;
         this.GetComponent<MeshRenderer>().enabled = false;
+        OnCorrectBattery?.Invoke();
     }
 
     public void ExitSlot()
