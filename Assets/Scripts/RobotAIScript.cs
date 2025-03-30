@@ -17,6 +17,7 @@ public class RobotAIScript : MonoBehaviour
     public float turnThreshold = 5.0f;
     public Transform bulletSpawnPoint;
     float shootCooldown = 3.0f;
+    public float aggroRange = 8.0f;
     // Start is called before the first frame update
     void Start() {
         patrolType = patrolPathScript.patrolType;
@@ -41,6 +42,11 @@ public class RobotAIScript : MonoBehaviour
 
     void LookAndShootAtTarget(){
         if (playerTarget == null) return;
+
+        if(Vector3.Distance(transform.position, playerTarget.position) > aggroRange){
+            SetToPatrolling();
+            return;
+        }
 
         anim.SetFloat("Speed", 0);
 
@@ -70,7 +76,7 @@ public class RobotAIScript : MonoBehaviour
             anim.SetBool("turnLeft", false);
             anim.SetBool("turnRight", false);
 
-            // Shoot at target
+            // Shoot at target)
             if(shootCooldown <= 0){
                 anim.SetBool("shoot", true);
                 StartCoroutine(StartDelay());
