@@ -94,6 +94,7 @@ public class RobotAIScript : MonoBehaviour
         if(agent.remainingDistance < agent.stoppingDistance){
             if(patrolType == PatrolPathScript.PatrolType.Loop){
                 currentPatrolPointIndex = (currentPatrolPointIndex + 1) % patrolPoints.Count;
+                agent.SetDestination(patrolPoints[currentPatrolPointIndex].position);
             }else if(patrolType == PatrolPathScript.PatrolType.PingPong){
                 if(currentPatrolPointIndex == patrolPoints.Count - 1){
                     currentPatrolPointIndex = 0;
