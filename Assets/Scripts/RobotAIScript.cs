@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class RobotAIScript : MonoBehaviour
 {
+    public bool isGrabbed = false;
     public bool isPatrolling = true;
     public PatrolPathScript patrolPathScript;
     List<Transform> patrolPoints;
@@ -41,7 +42,7 @@ public class RobotAIScript : MonoBehaviour
     }
 
     void LookAndShootAtTarget(){
-        if (playerTarget == null) return;
+        if (playerTarget == null || isGrabbed) return;
 
         if(Vector3.Distance(transform.position, playerTarget.position) > aggroRange){
             SetToPatrolling();
@@ -127,5 +128,26 @@ public class RobotAIScript : MonoBehaviour
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * 5;
 
+    }
+
+    public void OnXRSelect(){
+        isGrabbed = true;
+        agent.isStopped = true;
+        anim.SetBool("grabbed", true);
+        anim.SetBool("shoot", false);
+        anim.SetBool("turnLeft", false);
+        anim.SetBool("turnRight", false);
+    }
+
+    public void OnXRRelease(){
+        isGrabbed = false;
+        agent.isStopped = false;
+        anim.SetBool("grabbed", false);
+        anim.SetBool("shoot", false);
+        anim.SetBool("turnLeft", false);
+        anim.SetBool("turnRight", false);
+        agent.SetDestination(patrolPoints[currentPatrolPointIndex].position);
+        playerTarget = null;
+        isPatrolling = true;
     }
 }
