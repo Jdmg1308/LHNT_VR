@@ -78,7 +78,15 @@ public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
 
         buttonState |= 1 << WebSocketClient.buttonState;
 
+        if(buttonState == 0){ //move forward
+            if(PlayerScript.instance != null){
+                PlayerScript.instance.MoveForward();
+            }
+        }
+
         // Queue the state event with the updated button state
         InputSystem.QueueStateEvent(this, new EEGInputState { buttons = buttonState});
+
+        
     }
 }

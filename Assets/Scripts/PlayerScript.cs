@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public static PlayerScript instance { get; private set; }
     public float health = 100f;
     private float maxHealth;
+
+    void Awake(){
+        if(instance == null){
+            instance = this;
+        }else{
+            Destroy(gameObject);
+        }
+    }
+
 
     void Start()
     {
@@ -20,5 +30,11 @@ public class PlayerScript : MonoBehaviour
         {
             // Die();
         }
+    }
+
+    public void MoveForward(){
+        // Move the player forward in the direction they are facing
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        transform.position += forward * Time.deltaTime;
     }
 }
