@@ -78,7 +78,39 @@ public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
 
         buttonState |= 1 << WebSocketClient.buttonState;
 
-        if(buttonState == 0){ //move forward
+        // Check if the "w" key is pressed for forward input
+        if (Keyboard.current.wKey.isPressed)
+        {
+            buttonState |= 1 << 0; // Set bit 0 for forwardButtonInput
+        }
+        // Check if the "s" key is pressed for backward input
+        if (Keyboard.current.sKey.wasPressedThisFrame)
+        {
+            buttonState |= 1 << 1; // Set bit 1 for backwardButtonInput
+        }
+        // Check if the "a" key is pressed for left input
+        if (Keyboard.current.aKey.isPressed)
+        {
+            buttonState |= 1 << 2; // Set bit 2 for leftButtonInput
+        }
+        // Check if the "d" key is pressed for right input
+        if (Keyboard.current.dKey.isPressed)
+        {
+            buttonState |= 1 << 3; // Set bit 3 for rightButtonInput
+        }
+        // Check if the "i" key is pressed for up input
+        if (Keyboard.current.iKey.isPressed)
+        {
+            buttonState |= 1 << 4; // Set bit 4 for upButtonInput
+        }
+        // Check if the "k" key is pressed for down input
+        if (Keyboard.current.kKey.isPressed)
+        {
+            buttonState |= 1 << 5; // Set bit 5 for downButtonInput
+        }
+
+
+        if (buttonState == 0){ //move forward
             if(PlayerScript.instance != null){
                 PlayerScript.instance.MoveForward();
             }
