@@ -3456,6 +3456,7 @@ GameObject:
   - component: {fileID: 3796365204673958941}
   - component: {fileID: 514558424594504713}
   - component: {fileID: 7790450624493108685}
+  - component: {fileID: 7426522760875150216}
   m_Layer: 2
   m_Name: LHNT XR Origin
   m_TagString: Player
@@ -3658,6 +3659,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d50862f6749af44a4ff34b6cf2c016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &7426522760875150216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936418252521187493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18822a3a326116c4c8d5e92815f4e4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerControls: {fileID: -944628639613478452, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
+  playerBody: {fileID: 0}
 --- !u!1001 &897012237805142201
 PrefabInstance:
   m_ObjectHideFlags: 0
