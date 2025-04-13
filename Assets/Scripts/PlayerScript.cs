@@ -31,6 +31,12 @@ public class PlayerScript : MonoBehaviour
             // Die();
         }
     }
+    
+    [ContextMenu("Take Damage")]
+    public void TakeDamage()
+    {
+        TakeDamage(10f); // Example damage value
+    }
 
     public void MoveForward(){
         // Move the player forward in the direction they are facing
