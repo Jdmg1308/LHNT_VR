@@ -25,7 +25,7 @@ public class BatterySlotScript : MonoBehaviour
             if (this.GetComponent<MeshRenderer>().enabled)
             {
                 currentBatteryName = other.gameObject.name; // Store the battery name
-                interactor.allowSelect = false;
+                interactor.allowSelect = true;
                 snappable = false;
             }
             Debug.Log("inside after if snappable? " + snappable);
@@ -46,7 +46,7 @@ public class BatterySlotScript : MonoBehaviour
         if (!string.IsNullOrEmpty(requiredBatterySuffix) && currentBatteryName.EndsWith(requiredBatterySuffix))
         {
 
-            interactor.allowSelect = true;
+            interactor.allowSelect = false;
             this.GetComponent<MeshRenderer>().enabled = false;
             OnCorrectBattery?.Invoke(); // Trigger event
         }
