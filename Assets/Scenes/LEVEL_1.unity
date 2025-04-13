@@ -6160,7 +6160,7 @@ PrefabInstance:
     - target: {fileID: 2561736809432828450, guid: 2c2c307fe501292439c601fdc4f4408a, type: 3}
       propertyPath: OnCorrectBattery.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1189749965}
+      objectReference: {fileID: 1189749967}
     - target: {fileID: 2561736809432828450, guid: 2c2c307fe501292439c601fdc4f4408a, type: 3}
       propertyPath: OnCorrectBattery.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -7388,9 +7388,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 469584, guid: 2216270888a4ced48b33b7b5641611e6, type: 3}
   m_PrefabInstance: {fileID: 1175075370}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1189749965 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
+--- !u!95 &1189749967 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9575016, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 1664538869}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1197706920
@@ -7710,9 +7710,9 @@ Transform:
   - {fileID: 1954324533}
   m_Father: {fileID: 474256133}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1291727588 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
+--- !u!95 &1291727590 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9575016, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 1483400412}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294729344
@@ -9595,7 +9595,7 @@ PrefabInstance:
     - target: {fileID: 2561736809432828450, guid: 2c2c307fe501292439c601fdc4f4408a, type: 3}
       propertyPath: OnCorrectBattery.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1996934017}
+      objectReference: {fileID: 1996934019}
     - target: {fileID: 2561736809432828450, guid: 2c2c307fe501292439c601fdc4f4408a, type: 3}
       propertyPath: OnCorrectBattery.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -10560,7 +10560,7 @@ PrefabInstance:
     - target: {fileID: 2561736809432828450, guid: 2c2c307fe501292439c601fdc4f4408a, type: 3}
       propertyPath: OnCorrectBattery.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1291727588}
+      objectReference: {fileID: 1291727590}
     - target: {fileID: 2561736809432828450, guid: 2c2c307fe501292439c601fdc4f4408a, type: 3}
       propertyPath: OnCorrectBattery.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -12087,9 +12087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1996934017 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 141970, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
+--- !u!95 &1996934019 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9575016, guid: ac7a01ca06ca9044eb15b32cb7a936f8, type: 3}
   m_PrefabInstance: {fileID: 1202284678}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2002311817
