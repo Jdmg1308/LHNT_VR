@@ -28,7 +28,7 @@ public class PlayerScript : MonoBehaviour
         GameplayUIScript.instance.healthBar.value = health / maxHealth; 
         if (health <= 0f)
         {
-            
+            GameManagerScript.instance.StartDeathSequence(); // Start the death sequence
         }
     }
     
