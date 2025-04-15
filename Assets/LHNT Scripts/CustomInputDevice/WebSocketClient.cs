@@ -6,7 +6,7 @@ using NativeWebSocket;
 public class WebSocketClient : MonoBehaviour
 {
     private WebSocket websocket;
-    public static int buttonState = 0; // This will be updated based on received data
+    public static int buttonState = -1; // This will be updated based on received data
 
     // Define a data structure that matches the incoming JSON
     [Serializable]

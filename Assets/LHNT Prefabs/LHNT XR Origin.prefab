@@ -3627,7 +3627,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3672,8 +3672,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18822a3a326116c4c8d5e92815f4e4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerControls: {fileID: -944628639613478452, guid: 1ed92fb2685978b4ea27bad7dddbe9f2, type: 3}
   playerBody: {fileID: 0}
+  moveSpeed: 1.5
+  forwardButtonInput: {fileID: 0}
 --- !u!1001 &897012237805142201
 PrefabInstance:
   m_ObjectHideFlags: 0

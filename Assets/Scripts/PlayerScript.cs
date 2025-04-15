@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour
 
     public void MoveForward(){
         // Move the player forward in the direction they are facing
+        Debug.Log("MoveForward PlayerScript");
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         transform.position += forward * Time.deltaTime;
     }
