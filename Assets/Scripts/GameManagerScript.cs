@@ -8,8 +8,10 @@ public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance { get; private set; }
     public GameObject bloodyOverlayPrefab;
+    public GameObject winStateOverlayPrefab;
     public float timeToDie = 4f;
     private bool isDying = false;
+    private bool isWinning = false;
 
 
     void Awake()
@@ -32,6 +34,14 @@ public class GameManagerScript : MonoBehaviour
         bloodyOverlayPrefab.SetActive(true);
     }
 
+    [ContextMenu("Start Winning Sequence")]
+    public void StartWinningSequence()
+    {
+        // Start the death sequence
+        isWinning = true;
+        winStateOverlayPrefab.SetActive(true);
+    }
+
     void Update()
     {
         if(isDying){
@@ -45,6 +55,22 @@ public class GameManagerScript : MonoBehaviour
 
             if(timeToDie <= 0f){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reload the current scene
+            }
+        }
+
+        if (isWinning)
+        {
+            timeToDie -= Time.deltaTime;
+
+            // Increase alpha of bloody overlay image
+            Color overlayColor = winStateOverlayPrefab.GetComponent<Image>().color;
+            overlayColor.a += Time.deltaTime / 5f; // Adjust the speed of fading in
+            Image WinningImage = winStateOverlayPrefab.GetComponent<Image>();
+            WinningImage.color = overlayColor;
+
+            if (timeToDie <= 0f)
+            {
+                SceneManager.LoadScene("LHNT Tutorial");
             }
         }
     }
