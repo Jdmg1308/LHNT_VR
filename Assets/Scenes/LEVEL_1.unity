@@ -9192,10 +9192,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 940158895}
     m_Modifications:
+    - target: {fileID: 724032659226552019, guid: 4ce1a0967687d1446bae5685f195974b, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 834131309403360063, guid: 4ce1a0967687d1446bae5685f195974b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2465895008217183612, guid: 4ce1a0967687d1446bae5685f195974b, type: 3}
       propertyPath: patrolPathScript
       value: 
       objectReference: {fileID: 1220136743}
+    - target: {fileID: 3781238198852526312, guid: 4ce1a0967687d1446bae5685f195974b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4215371445220220322, guid: 4ce1a0967687d1446bae5685f195974b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.07

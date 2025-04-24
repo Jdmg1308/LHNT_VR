@@ -150,4 +150,16 @@ public class RobotAIScript : MonoBehaviour
         playerTarget = null;
         isPatrolling = true;
     }
+
+    [ContextMenu("Launch Robot")]
+    public void LaunchRobot() {
+        // Launch Robot same direction as player is looking
+        Vector3 launchDirection = Camera.main.transform.forward;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false; 
+        rb.AddForce(launchDirection * 10f, ForceMode.Impulse); 
+        rb.AddTorque(Vector3.up * 5f, ForceMode.Impulse); 
+        rb.useGravity = true;
+
+    }
 }
