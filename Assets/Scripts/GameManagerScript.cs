@@ -42,6 +42,11 @@ public class GameManagerScript : MonoBehaviour
         winStateOverlayPrefab.SetActive(true);
     }
 
+    public void LoadTutorial()
+    {
+        SceneManager.LoadScene("LEVEL_1");
+    }
+
     void Update()
     {
         if(isDying){

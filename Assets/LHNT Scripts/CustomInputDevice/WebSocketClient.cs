@@ -19,7 +19,7 @@ public class WebSocketClient : MonoBehaviour
     async void Start()
     {
         // Ensure the WebSocket URL is correct
-        websocket = new WebSocket("ws://10.150.52.215:8000/ws");
+        websocket = new WebSocket("ws://127.0.0.1:8000/ws"); // 10.150.52.215:8000
 
         websocket.OnOpen += () => Debug.Log("Connected to WebSocket server");
         websocket.OnError += (e) => Debug.LogError($"WebSocket Error: {e}");
