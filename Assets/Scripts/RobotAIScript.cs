@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class RobotAIScript : MonoBehaviour
 {
+    public bool dead = false;
     public bool isGrabbed = false;
     public bool isPatrolling = true;
     public PatrolPathScript patrolPathScript;
@@ -19,6 +21,7 @@ public class RobotAIScript : MonoBehaviour
     public Transform bulletSpawnPoint;
     float shootCooldown = 3.0f;
     public float aggroRange = 8.0f;
+
     // Start is called before the first frame update
     void Start() {
         patrolType = patrolPathScript.patrolType;
@@ -31,6 +34,7 @@ public class RobotAIScript : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if(dead) return;
         if(isPatrolling){
             Patrol();
         }else{
@@ -150,4 +154,25 @@ public class RobotAIScript : MonoBehaviour
         playerTarget = null;
         isPatrolling = true;
     }
+
+    [ContextMenu("Launch Robot")]
+    public void LaunchRobot() {
+        // Launch Robot same direction as player is looking
+        Vector3 launchDirection = Camera.main.transform.forward;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false; 
+        rb.AddForce(launchDirection * 10f, ForceMode.Impulse); 
+        rb.AddTorque(Vector3.up * 5f, ForceMode.Impulse); 
+        rb.useGravity = true;
+        anim.SetBool("die", true);
+        dead = true;
+        Invoke("WaitForDie", 2.0f);
+        transform.Find("Rob03").GetComponent<XRGrabInteractable>().enabled = false;
+    }
+
+    void WaitForDie(){
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        agent.enabled = false;
+    } 
 }
