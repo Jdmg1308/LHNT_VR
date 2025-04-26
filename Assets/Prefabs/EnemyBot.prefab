@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Colliders:
   - {fileID: 1933389569336592461}
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -1106,7 +1106,7 @@ GameObject:
   - component: {fileID: 3369556195956261031}
   - component: {fileID: 2465895008217183612}
   - component: {fileID: 724032659226552019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cb7b6a634d1fa49a3fe5daf5b17894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   isGrabbed: 0
   isPatrolling: 1
   patrolPathScript: {fileID: 0}

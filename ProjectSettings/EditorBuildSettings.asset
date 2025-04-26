@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Sci-Fi Styled Modular Pack/Example scenes/outpost with snow.unity
-    guid: e8cf1d29775c7e24f9dd35148a6437c0
+    path: Assets/Scenes/LHNT Tutorial.unity
+    guid: b97befdf953c7e34691211f5ae81de50
+  - enabled: 1
+    path: Assets/Scenes/LEVEL_1.unity
+    guid: 824f89c066e8efa498b2e21718a3a705
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

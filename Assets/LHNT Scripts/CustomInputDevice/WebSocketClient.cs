@@ -1,10 +1,13 @@
 using System;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using NativeWebSocket;
 
 public class WebSocketClient : MonoBehaviour
 {
+
+    private static WebSocketClient _instance;
     private WebSocket websocket;
     public static int buttonState = -1; // This will be updated based on received data
 
@@ -63,5 +66,41 @@ public class WebSocketClient : MonoBehaviour
     private async void OnApplicationQuit()
     {
         await websocket.Close();
+    }
+
+    void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+
+            // Subscribe to scene change
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            // If a duplicate somehow spawns, disable it
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Deactivate any duplicates in the newly loaded scene
+        WebSocketClient[] objects = FindObjectsOfType<WebSocketClient>();
+        foreach (var obj in objects)
+        {
+            if (obj != this)
+            {
+                obj.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Always clean up event subscription
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

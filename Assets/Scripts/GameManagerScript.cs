@@ -44,7 +44,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void LoadTutorial()
     {
-        SceneManager.LoadScene("LEVEL_1");
+        SceneManager.LoadScene("LHNT Tutorial");
     }
 
     void Update()
@@ -75,7 +75,7 @@ public class GameManagerScript : MonoBehaviour
 
             if (timeToDie <= 0f)
             {
-                SceneManager.LoadScene("LHNT Tutorial");
+                LoadTutorial();
             }
         }
     }
