@@ -112,20 +112,35 @@ public class RobotAIScript : MonoBehaviour
         }
     }
 
-    public void SetToNotPatrolling(Transform target){
+    public void SetToNotPatrolling(Transform target)
+    {
         Debug.Log("Player Detected");
         isPatrolling = false;
-        agent.isStopped = true;
-        playerTarget = target;
+
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            agent.isStopped = true;
+        }
         agent.enabled = false;
+
+        playerTarget = target;
     }
 
-    public void SetToPatrolling(){
+
+    public void SetToPatrolling()
+    {
         isPatrolling = true;
-        agent.isStopped = false;
-        playerTarget = null;
+
         agent.enabled = true;
+
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            agent.isStopped = false;
+        }
+
+        playerTarget = null;
     }
+
 
     IEnumerator StartDelay(){
         yield return new WaitForSeconds(.5f);
@@ -134,23 +149,28 @@ public class RobotAIScript : MonoBehaviour
 
     }
 
-    public void OnXRSelect(){
+    public void OnXRSelect()
+    {
         isGrabbed = true;
-        agent.isStopped = true;
+        agent.enabled = false; // FULLY disable agent
         anim.SetBool("grabbed", true);
         anim.SetBool("shoot", false);
         anim.SetBool("turnLeft", false);
         anim.SetBool("turnRight", false);
     }
 
-    public void OnXRRelease(){
+    public void OnXRRelease()
+    {
         isGrabbed = false;
-        agent.isStopped = false;
+        agent.enabled = true; // RE-ENABLE agent
         anim.SetBool("grabbed", false);
         anim.SetBool("shoot", false);
         anim.SetBool("turnLeft", false);
         anim.SetBool("turnRight", false);
-        agent.SetDestination(patrolPoints[currentPatrolPointIndex].position);
+
+        if (patrolPoints != null && patrolPoints.Count > 0)
+            agent.SetDestination(patrolPoints[currentPatrolPointIndex].position);
+
         playerTarget = null;
         isPatrolling = true;
     }
