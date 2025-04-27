@@ -22,6 +22,8 @@ public class WebSocketClient : MonoBehaviour
     async void Start()
     {
         // Ensure the WebSocket URL is correct
+        
+        // websocket = new WebSocket("ws://172.20.10.3:8000/ws");
         websocket = new WebSocket("ws://" + IP_address + "/ws"); // 10.150.52.215:8000
 
         websocket.OnOpen += () => Debug.Log("Connected to WebSocket server");
@@ -35,13 +37,31 @@ public class WebSocketClient : MonoBehaviour
 
             try
             {
-                WebSocketMessage data = JsonUtility.FromJson<WebSocketMessage>(rawMessage);
-                Debug.Log($"Parsed Data: text={data.text}, vector={string.Join(",", data.vector)}");
-
-                if (data.vector.Length > 0)
+                if (rawMessage.TrimStart().StartsWith("{"))
                 {
-                    buttonState = (Mathf.RoundToInt(data.vector[UnityEngine.Random.Range(0, data.vector.Length)])) - 1;
-                    Debug.Log($" Updated buttonState: {buttonState}");
+                    // Proper JSON object, parse normally
+                    WebSocketMessage data = JsonUtility.FromJson<WebSocketMessage>(rawMessage);
+                    Debug.Log($"Parsed Data: text={data.text}, vector={string.Join(",", data.vector)}");
+
+                    if (data.vector.Length > 0)
+                    {
+                        buttonState = (Mathf.RoundToInt(data.vector[UnityEngine.Random.Range(0, data.vector.Length)])) - 1;
+                        Debug.Log($"Updated buttonState: {buttonState}");
+                    }
+                }
+                else
+                {
+                    // Otherwise it's just a simple number or string
+                    int simpleValue;
+                    if (int.TryParse(rawMessage, out simpleValue))
+                    {
+                        buttonState = simpleValue;
+                        Debug.Log($"Parsed simple buttonState: {buttonState}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"Received unrecognized message format: {rawMessage}");
+                    }
                 }
             }
             catch (Exception e)

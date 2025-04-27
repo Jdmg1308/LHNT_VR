@@ -76,7 +76,13 @@ public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
         // Get the button state from WebSocketClient
         int buttonState = 0;
 
-        buttonState |= 1 << WebSocketClient.buttonState;
+        if (WebSocketClient.buttonState > 0)
+        {
+            buttonState |= 1 << WebSocketClient.buttonState;
+        } else
+        {
+            buttonState |= 1 << 6;
+        }
 
         // Check if the "w" key is pressed for forward input
         if (Keyboard.current.wKey.isPressed)
