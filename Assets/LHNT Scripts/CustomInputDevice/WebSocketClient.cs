@@ -3,6 +3,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using NativeWebSocket;
+using TMPro;
 
 public class WebSocketClient : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class WebSocketClient : MonoBehaviour
     public string IP_address;
     private WebSocket websocket;
     public static int buttonState = -1; // This will be updated based on received data
+    public TextMeshProUGUI status_descriptor;
 
     // Define a data structure that matches the incoming JSON
     [Serializable]
@@ -21,14 +23,34 @@ public class WebSocketClient : MonoBehaviour
 
     async void Start()
     {
+        status_descriptor.text = "not connected";
         // Ensure the WebSocket URL is correct
-        
-        // websocket = new WebSocket("ws://172.20.10.3:8000/ws");
-        websocket = new WebSocket("ws://" + IP_address + "/ws"); // 10.150.52.215:8000
 
-        websocket.OnOpen += () => Debug.Log("Connected to WebSocket server");
-        websocket.OnError += (e) => Debug.LogError($"WebSocket Error: {e}");
-        websocket.OnClose += (e) => Debug.Log("WebSocket Closed");
+        // websocket = new WebSocket("ws://172.20.10.3:8000/ws");
+        // websocket = new WebSocket("ws://" + IP_address + "/ws"); // 10.150.52.215:8000
+    }
+
+    public async void ConnectToWebSocket(string ip)
+    {
+        IP_address = ip;
+        websocket = new WebSocket("ws://" + IP_address + "/ws");
+        status_descriptor.text = "Attempting to connect";
+        websocket.OnOpen += () => {
+            Debug.Log("Connected to WebSocket server");
+            // Update UI to show checkmark
+            status_descriptor.text = "Connected to WebSocket server";
+        };
+
+        websocket.OnError += (e) => {
+            Debug.Log($"WebSocket Error: {e}");
+            // Update UI to show error icon
+            status_descriptor.text = $"WebSocket Error: {e}";
+        };
+
+        websocket.OnClose += (e) => {
+            Debug.Log("WebSocket Closed");
+            status_descriptor.text = "WebSocket Closed";
+        };
 
         websocket.OnMessage += (bytes) =>
         {
@@ -70,9 +92,9 @@ public class WebSocketClient : MonoBehaviour
             }
         };
 
-
         await websocket.Connect();
     }
+
 
     void Update()
     {
@@ -81,7 +103,6 @@ public class WebSocketClient : MonoBehaviour
             websocket.DispatchMessageQueue(); // Required to process received messages!
         }
     }
-
 
     private async void OnApplicationQuit()
     {
