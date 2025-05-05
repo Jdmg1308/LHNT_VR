@@ -58,9 +58,9 @@ public class SlideScript : MonoBehaviour
                 if ((backward != null && backward.isPressed) ||
                     (left != null && left.isPressed) ||
                     (right != null && right.isPressed) ||
-                    (up != null && up.isPressed) ||
-                    (down != null && down.isPressed))
+                    (up != null && up.isPressed))
                 {
+                    Debug.Log("forwards canceled");
                     isMovingForward = false;
                     return;
                 }
@@ -68,6 +68,7 @@ public class SlideScript : MonoBehaviour
                 // If forward is pressed, activate forward movement
                 if (forward != null && forward.isPressed)
                 {
+                    Debug.Log("mobing mobing");
                     isMovingForward = true;
                 }
 

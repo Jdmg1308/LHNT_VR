@@ -22,7 +22,7 @@ public struct EEGInputState : IInputStateTypeInfo
 }
 
 [InputControlLayout(displayName = "EEG Input Device", stateType = typeof(EEGInputState))]
-[InitializeOnLoad]
+// [InitializeOnLoad]
 public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
 {
     public ButtonControl forwardButtonInput { get; private set; }
