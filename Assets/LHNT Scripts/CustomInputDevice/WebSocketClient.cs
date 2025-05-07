@@ -10,7 +10,7 @@ public class WebSocketClient : MonoBehaviour
     private static WebSocketClient _instance;
     public string IP_address;
     private WebSocket websocket;
-    public static int buttonState = -1; // This will be updated based on received data
+    public static string buttonState = "00"; // This will be updated based on received data
     public TextMeshProUGUI status_descriptor;
 
     // Define a data structure that matches the incoming JSON
@@ -55,7 +55,7 @@ public class WebSocketClient : MonoBehaviour
         websocket.OnMessage += (bytes) =>
         {
             string rawMessage = Encoding.UTF8.GetString(bytes);
-            Debug.Log($" Received from WebSocket: {rawMessage}");  // Always log received messages
+            //Debug.Log($" Received from WebSocket: {rawMessage}");  // Always log received messages
 
             try
             {
@@ -67,23 +67,20 @@ public class WebSocketClient : MonoBehaviour
 
                     if (data.vector.Length > 0)
                     {
-                        buttonState = (Mathf.RoundToInt(data.vector[UnityEngine.Random.Range(0, data.vector.Length)])) - 1;
+                        buttonState = data.vector[UnityEngine.Random.Range(0, data.vector.Length)].ToString();
                         Debug.Log($"Updated buttonState: {buttonState}");
                     }
                 }
                 else
                 {
+                    buttonState = rawMessage.ToString();
                     // Otherwise it's just a simple number or string
-                    int simpleValue;
-                    if (int.TryParse(rawMessage, out simpleValue))
-                    {
-                        buttonState = simpleValue;
-                        Debug.Log($"Parsed simple buttonState: {buttonState}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning($"Received unrecognized message format: {rawMessage}");
-                    }
+                    //int simpleValue;
+                    //if (int.TryParse(rawMessage, out simpleValue))
+                    //{
+                    //    buttonState = simpleValue.ToString();
+                    //    //Debug.Log($"Parsed simple buttonState: {buttonState}");
+                    //}
                 }
             }
             catch (Exception e)

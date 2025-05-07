@@ -74,57 +74,70 @@ public class EEGInputDevice : InputDevice, IInputUpdateCallbackReceiver
     public void OnUpdate()
     {
         // Get the button state from WebSocketClient
-        int buttonState = 0;
+        int buttonState_1 = 0;
+        int buttonState_2 = 0;
 
-        if (WebSocketClient.buttonState > 0)
+        string received = WebSocketClient.buttonState;
+
+        int received_1 = int.Parse(received[0].ToString());
+        int received_2 = (received.Length > 1) ? int.Parse(received[1].ToString()) : 0;
+
+        Debug.Log($"received_1: {received_1}");
+        Debug.Log($"received_2: {received_2}");
+
+        if (received_1 > 0)
         {
-            buttonState |= 1 << WebSocketClient.buttonState;
-        } else
-        {
-            buttonState |= 1 << 6;
+            buttonState_1 = received_1;
         }
 
-        // Check if the "w" key is pressed for forward input
+        if (received_2 > 0)
+        {
+            buttonState_2 = received_2;
+        }
+
+        // Check if the "w" key is pressed for forward input 
         if (Keyboard.current.wKey.isPressed)
         {
-            buttonState |= 1 << 1; // Set bit 1 for forwardButtonInput
+            buttonState_1 |= 1 << 1; // Set bit 1 for forwardButtonInput (moving foward)
         }
         // Check if the "s" key is pressed for backward input
         if (Keyboard.current.sKey.wasPressedThisFrame)
         {
-            buttonState |= 1 << 2; // Set bit 2 for backwardButtonInput
+            buttonState_1 |= 1 << 2; // Set bit 2 for backwardButtonInput (grabbing)
         }
         // Check if the "a" key is pressed for left input
         if (Keyboard.current.aKey.isPressed)
         {
-            buttonState |= 1 << 3; // Set bit 3 for leftButtonInput
+            buttonState_1 |= 1 << 3; // Set bit 3 for leftButtonInput (stop)
         }
         // Check if the "d" key is pressed for right input
         if (Keyboard.current.dKey.isPressed)
         {
-            buttonState |= 1 << 4; // Set bit 4 for rightButtonInput
+            buttonState_1 |= 1 << 4; // Set bit 4 for rightButtonInput (activate)
         }
         // Check if the "i" key is pressed for up input
         if (Keyboard.current.iKey.isPressed)
         {
-            buttonState |= 1 << 5; // Set bit 5 for upButtonInput
+            buttonState_1 |= 1 << 5; // Set bit 5 for upButtonInput (teleport)
         }
         // Check if the "k" key is pressed for down input
         if (Keyboard.current.kKey.isPressed)
         {
-            buttonState |= 1 << 6; // Set bit 6 for downButtonInput
+            buttonState_1 |= 1 << 6; // Set bit 6 for downButtonInput
         }
 
 
-        if (buttonState == 1){ //move forward
+        if (buttonState_1 == 1){ //move forward
             if(PlayerScript.instance != null){
                 PlayerScript.instance.MoveForward();
             }
         }
 
         // Queue the state event with the updated button state
-        InputSystem.QueueStateEvent(this, new EEGInputState { buttons = buttonState});
+        Debug.Log($"QueueStateEvent_1: {buttonState_1}");
+        InputSystem.QueueStateEvent(this, new EEGInputState { buttons = buttonState_1});
+        Debug.Log($"QueueStateEvent_2: {buttonState_2}");
+        InputSystem.QueueStateEvent(this, new EEGInputState { buttons = buttonState_2});
 
-        
     }
 }

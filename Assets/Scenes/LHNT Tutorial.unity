@@ -3459,6 +3459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EEG_device_websocket_client
       objectReference: {fileID: 0}
+    - target: {fileID: 3290242203620255111, guid: da245a9bc36424040808fd4c914c7bfe, type: 3}
+      propertyPath: IP_address
+      value: 172.20.10.2:8000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
